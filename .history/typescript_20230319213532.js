@@ -31,8 +31,10 @@ module.exports = {
       },
     ],
     '@typescript-eslint/no-floating-promises': '1',
+    '@typescript-eslint/no-use-before-define': 'off',
     // this is covered by the typescript compiler, so we don't need it
-    // TS does it
+    'no-undef': 'off',
+    'no-shadow': 'off', // TS does it
   },
   parserOptions: {
     project: './tsconfig.json',

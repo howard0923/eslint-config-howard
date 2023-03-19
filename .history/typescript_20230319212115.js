@@ -22,17 +22,20 @@ module.exports = {
       },
     ],
     '@typescript-eslint/no-explicit-any': 'off',
-    // warning unused-vars
-    'no-redeclare': '1',
+    'no-unused-vars': 0,
+    '@typescript-eslint/no-unused-vars': [1, { ignoreRestSiblings: true }],
+    'no-redeclare': 'off',
     '@typescript-eslint/no-redeclare': [
       'warn',
       {
         ignoreDeclarationMerge: true,
       },
     ],
-    '@typescript-eslint/no-floating-promises': '1',
+    '@typescript-eslint/no-floating-promises': 'off',
+    '@typescript-eslint/no-use-before-define': 'off',
     // this is covered by the typescript compiler, so we don't need it
-    // TS does it
+    'no-undef': 'off',
+    'no-shadow': 'off', // TS does it
   },
   parserOptions: {
     project: './tsconfig.json',
