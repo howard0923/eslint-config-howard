@@ -1,0 +1,40 @@
+module.exports = {
+  globals: {
+    React: true,
+    JSX: true,
+  },
+  extends: [
+    'plugin:@typescript-eslint/recommended', // Uses rules from `@typescript-eslint/eslint-plugin`,
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    // Layer in all the JS Rules
+    './.eslintrc.js',
+  ],
+  // then add some extra good stuff for Typescript
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint'],
+  // Then we add our own custom typescript rules
+  rules: {
+    // This allows us to use async function on addEventListener(). Discussion: https://twitter.com/wesbos/status/1337074242161172486
+    '@typescript-eslint/no-misused-promises': [
+      'error',
+      {
+        checksVoidReturn: false,
+      },
+    ],
+    '@typescript-eslint/no-explicit-any': 'off',
+    // warning unused-vars
+    'no-redeclare': '1',
+    '@typescript-eslint/no-redeclare': [
+      'warn',
+      {
+        ignoreDeclarationMerge: true,
+      },
+    ],
+    '@typescript-eslint/no-floating-promises': '1',
+    // this is covered by the typescript compiler, so we don't need it
+    // TS does it
+  },
+  parserOptions: {
+    project: './tsconfig.json',
+  },
+};
